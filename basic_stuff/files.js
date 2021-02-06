@@ -31,7 +31,7 @@ files.forEach(file => {
 //  hosts static files and more complex pages
 require('http')
     .createServer((req, res) => {
-        fs.readFile('index.html', (error, data) => {  // Reads a html file
+        fs.readFile('./html/index.html', (error, data) => {  // Reads a html file
             res.statusCode = 200
             res.setHeader('Content-type', 'text/html')  // Sets text/html
             res.write(data)  // Writes the readFile data to the page
