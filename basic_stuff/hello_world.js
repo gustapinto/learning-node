@@ -1,7 +1,7 @@
 const http = require('http')  // Requires Node.js http library
 
-const hostname = '0.0.0.0'  // Set localhost as host
-const port = 80  // Set the host port
+const hostname = process.env.HOST  // Set the host IP
+const port = process.env.PORT  // Set the host port
 
 // Initialize the http server instance
 const server = http.createServer((request, response) => {

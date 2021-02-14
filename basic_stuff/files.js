@@ -27,6 +27,9 @@ files.forEach(file => {
     })
 });
 
+const port = process.env.PORT
+const host = process.env.HOST
+
 // The filesystem can also be combined to the 'http' module to let the server
 //  hosts static files and more complex pages
 require('http')
@@ -38,6 +41,6 @@ require('http')
             res.end()
         })
     })
-    .listen(80, '0.0.0.0', () => {
-        console.log(`Server running at http://0.0.0.0:80/`)
+    .listen(port, host, () => {
+        console.log(`Server running at http://${host}:${port}/`)
     })

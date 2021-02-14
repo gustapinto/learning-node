@@ -1,5 +1,8 @@
 const URL = require('url')
 
+const port = process.env.PORT
+const host = process.env.HOST
+
 require('http')
     .createServer((req, res) => {
         let url = URL.parse(req.url, true)  // Uses the url module to parse the request url
@@ -11,6 +14,6 @@ require('http')
         res.write(`Search: ${url.search} \n`)
         res.end()
     })
-    .listen(80, '0.0.0.0', () => {
-        console.log(`Server running at http://0.0.0.0:80/`)
+    .listen(port, host, () => {
+        console.log(`Server running at http://${host}:${port}/`)
     })

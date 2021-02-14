@@ -10,6 +10,9 @@ readline.question('Say something.', message => {  // Listen the comand line from
     readline.close()
 })
 
+const port = process.env.PORT
+const host = process.env.HOST
+
 require('http')
     .createServer((req, res) => {
         res.statusCode = 200
@@ -17,6 +20,6 @@ require('http')
         res.write(`${text} \n`)
         res.end()
     })
-    .listen(80, '0.0.0.0', () => {
-        console.log(`Server running at http://0.0.0.0:80/`)
+    .listen(port, host, () => {
+        console.log(`Server running at http://${host}:${port}/`)
     })

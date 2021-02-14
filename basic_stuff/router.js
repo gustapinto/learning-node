@@ -3,8 +3,8 @@ const http = require('http')
 const URL = require('url')
 const fs = require('fs')
 
-const port = 80
-const host = '0.0.0.0'
+const port = process.env.PORT
+const host = process.env.HOST
 
 let server = http.createServer((req, res) => {
     let url = URL.parse(req.url, true)
@@ -18,12 +18,11 @@ let server = http.createServer((req, res) => {
         }
 
         res.writeHead(200, {'Content-type': 'text/html'})
-        // res.setHeader('Content-type', 'text/html')
         res.write(data)
         return res.end()
     })
 })
 
 server.listen(port, host, () => {
-    console.log(`Server running at http://${port}:${host}/`)
+    console.log(`Server running at http://${host}:${port}/`)
 })
